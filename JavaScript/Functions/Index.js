@@ -154,3 +154,21 @@
 // For regular functions, you can create a new instance using the new keyword. And this sets the this value to the new instance you've created.
 // For arrow functions, you cannot use them as constructors. This is because the value of this in arrow functions is lexically scoped – that is, determined by the surrounding execution context.
 //  This behaviour does not make them suitable to be used as constructors.
+
+// 1.7  Higher Order Functions
+// Higher order functions are functions that take functions as arguments and also return a function as a value.
+// First, let's take a look at some examples of built-in higher order functions.
+// Array methods are usually the first introduction of higher order functions a developer will have when learning JavaScript. 
+// These include, but are not limited to, the map, filter, forEach, find, findIndex, some, and every array methods provided by JavaScript.
+// Another set of commonly used built-in higher order functions are the setInterval and setTimeout functions, known as timer events in JavaScript.
+// Remember that higher order functions either take a function as a parameter and/or return a function as a value.
+
+
+// 1.8 Callback Functions
+// A callback function is a function that is passed into another function as an argument.
+
+// The Difference Between Higher Order Functions and Callback Functions
+// Higher Order Function: A function that accepts a function as an argument and/or returns a function as its value.
+// Callback Function: A function that's passed as a argument to another function
+
+

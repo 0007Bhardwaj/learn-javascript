@@ -1,0 +1,2 @@
+// A JavaScript Proxy is an object that allows you to intercept and customize operations performed on another object (called the target object). 
+// Proxies are used for a variety of purposes, such as logging, validation, formatting, and so on.

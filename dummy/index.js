@@ -26,65 +26,7 @@
 
 // console.log(Object.arguments);
 
-// const cache = new Map();
-// function memoiseFunction(func) {
-//   return function (first, second) {
-//     if (cache.has(`${first}+${second}`)) {
-//       return cache.get(`${first}+${second}`);
-//     }
-//     const result = func(first, second);
-//     cache.set(`${first}+${second}`, result);
 
-//     return result;
-//   };
-// }
-
-// const addTwoNumbers = (a, b) => {
-//   console.log("function called ");
-//   return a + b;
-// };
-
-// const myMemoFunction = memoiseFunction(addTwoNumbers);
-// // const calculatedRes = myMemoFunction(2, 5);
-// console.log("🚀 ~ calculatedRes:", myMemoFunction(2, 5));
-// console.log("🚀 ~ calculatedRes:", myMemoFunction(2, 5));
-// console.log("🚀 ~ calculatedRes:", myMemoFunction(5, 5));
-// console.log("🚀 ~ calculatedRes:", myMemoFunction(5, 5));
-
-// console.log("🚀 ~ cache:", cache)
-// let count = 0;
-
-// function closure() {
-//   setTimeout(() => {
-//     console.log(value);
-//   }, 0);
-//   var value = 0;
-//   value++;
-//   // console.log(value);
-// }
-
-// closure();
-// const dummyArray = Array(10000).fill({});
-// dummyArray.forEach((element) => {
-//   count++;
-// });
-// console.log("count", count);
-
-// const array1 = [1, 2, 3, { name: "ankit" }, [[[[4]]]], 5, [[6], [[7]]]];
-
-// const flattenArray = (arrayToFlat = [], expected = []) => {
-//   for (let index = 0; index < arrayToFlat.length; index++) {
-//     if (Array.isArray(arrayToFlat[index])) {
-//       flattenArray(arrayToFlat[index], expected);
-//     } else {
-//       expected.push(arrayToFlat[index]);
-//     }
-//   }
-
-//   return expected;
-// };
-// const result = flattenArray(array1);
-// console.log("🚀 ~ result:", result);
 
 // proof that let and const are also hoisted
 
@@ -412,14 +354,3 @@
 //     console.log("🚀 ~ index:", index);
 //   }, 1000);
 // }
-
-for (var i = 0; i < 3; i++) {
-  setTimeout(
-    (function (i_local) {
-      return function () {
-        console.log(i_local);
-      };
-    })(i),
-    1000
-  );
-}

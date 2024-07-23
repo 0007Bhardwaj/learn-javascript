@@ -338,8 +338,8 @@
 // console.log("🚀 ~ result:", result);
 
 // example 18
-// take use of the closure and advantages of closure
 
+// take use of the closure and advantages of closure
 // const findValue = () => {
 //   let array = [];
 //   for (let index = 0; index < 1000000; index++) {
@@ -392,6 +392,7 @@
 // console.timeEnd("2");
 
 // example 20
+
 // infinite currying
 
 // function infiniteCurrying(a) {
@@ -403,8 +404,8 @@
 // console.log(infiniteCurrying(2)(4)(7)());
 
 // example 21
-// make a function currying
 
+// make a function currying
 // const sum = (a, b, c, d) => {
 //   return a + b + c + d;
 // };
@@ -500,3 +501,11 @@
 
 // console.log(composedFunction(4)); // Output: 11
 
+// example 26
+
+// let x = 20;
+// function logsSomething() {
+//   console.log("🚀 ~ logsSomething ~ x:", x); // undefined and error with let and const
+//   var x = 20;
+// }
+// logsSomething();

@@ -26,8 +26,6 @@
 
 // console.log(Object.arguments);
 
-
-
 // proof that let and const are also hoisted
 
 // function hello() {
@@ -354,3 +352,24 @@
 //     console.log("🚀 ~ index:", index);
 //   }, 1000);
 // }
+
+// function createIncrement() {
+//   let count = 0;
+//   let message = count;
+
+//   function log() {
+//     console.log(message, count);
+//   }
+
+//   function increment() {
+//     count++;
+//     // message++
+//   }
+//   return [increment, log];
+// }
+
+// const [increment, log] = createIncrement();
+// increment();
+// increment();
+// increment();
+// log(); // Now this will log "Count is 3"

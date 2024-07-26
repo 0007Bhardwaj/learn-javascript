@@ -25,7 +25,7 @@ function expensiveApiCall() {
 const throttleAFunction = (func = () => {}, delay = 300) => {
   let canCallFunc = true;
   return function (...args) {
-    if (canCallFunc) {
+    if (canCallFunc === true) {
       func.apply(this, args);
     }
     canCallFunc = setTimeout(() => {

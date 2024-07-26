@@ -485,7 +485,7 @@
 //   console.log(await addFive(10));  // Outputs: 15
 // })();
 
-//---- n functions composition-------
+// ---- n functions composition-------
 
 // const compose =
 //   (...functions) =>
@@ -509,3 +509,209 @@
 //   var x = 20;
 // }
 // logsSomething();
+
+// ---- closure quesions-------
+
+// function counter(start = 0) {
+//   let count = start;
+//   function addCounter(addBy) {
+//     count += addBy || 1;
+//   }
+//   function reduceCounter(reduceBy) {
+//     count -= reduceBy || 1;
+//   }
+//   function getValue() {
+//     return count;
+//   }
+//   function clearCounter() {
+//     count = 0;
+//   }
+
+//   return {
+//     addCounter,
+//     reduceCounter,
+//     getValue,
+//     clearCounter,
+//   };
+// }
+
+// const counter1 = counter(100);
+// counter1.addCounter();
+// counter1.addCounter(99);
+// console.log(counter1.getValue());
+
+// ---------- output ---------
+
+// const age = 20;
+// (function immediate(number) {
+//   const message = `number is: ${number} and age is ${age}`;
+//   console.log("🚀 ~ result ~ message:", message);
+//   return message;
+// })(100);
+
+// ---------- Chaining ---------
+
+// const chainObj = {
+//   data: [],
+//   push(val) {
+//     this.data.push(val);
+//     return this;
+//   },
+//   pop(val) {
+//     this.data.pop(val);
+//     return this;
+//   },
+//   shift(val) {
+//     this.data.shift(val);
+//     return this;
+//   },
+// };
+
+// chainObj.push(20).push(29);
+// console.log(chainObj.data);
+
+// ---------- Output ---------
+
+// var length = 20;
+// function count() {
+//   console.log(this.length);
+// }
+// const data = [count, "A", 0];
+// data[0](); // output 3 // value of this depends on the left side of function
+
+// ---------- Output ---------
+// console.log(JSON.stringify("bhardwaj") === "bhardwaj" ); // false
+// because json.stringify will add extra quotes and it will become '"bhardwaj"' === 'bhardwaj'. that why it return false
+// json.parse cannot add '' to undefined
+
+// ---------- Output ---------
+
+// if (0) {
+//   function getData() {}
+// }
+// console.log(getData); // undefined
+// In JavaScript, if (0) evaluates to false, so the block of code inside the if statement will not execute. As a result, the getData function is not declared.
+// When you try to console.log(getData), it will output undefined because getData is not defined in the current scope. Here’s a simple explanation:
+// if (0) means the condition is false, so the code inside the block is ignored. Therefore, getData is never defined.Attempting to log getData shows undefined since the function does not exist.
+// we can fix this issue by executing the if block by if(1) {......}
+
+// ---------- Output ---------
+
+// const myObj = { name: "ankit" };
+// myObj.name='bhardwaj'
+// console.log(myObj.name); //bhardwaj
+// const means we cant reassign the variable but here we are not reassigning myObj we are just updating the value at  myObj referrence so its fine and it will not give us error
+// if we try myObj = {}. then it will give error as we are reassigning it. if we want to achieve same thing with obj we can use Object.freeze()
+
+// ---------- mount and unmount parent and child ---------
+// first child will mount then parent
+// during unmount first parent will unmount and then children
+
+// ---------- Output ---------
+
+// console.log(2 == 2); // true
+// console.log((2 == 2) == 2); // false
+// console.log(((2 == 2) == 2) == 0); // true
+// using == the flow of exection start from left to right so 2==2 result true and then true===2 so it will convert true to number so it will become 0==2 which is false
+// then false == 0 so false will  converted to 0 and  it becomes 0==0 and result is true
+
+// ---------- Output ---------
+
+// const output = 10 + isNaN(2) ? 0 : 20;
+// console.log(output); // 0
+// In js + is executed before ternary operator so it will count 10 + isNan(2) first so it will become 10 + 2 , 12 ? ) : 20 so it will return 0
+// if want to fix that issue we need to wrap if else in ()
+
+// const output = 10 +( isNaN(2) ? 0 : 20);
+// console.log(output); // 30
+
+// ---------- Output ---------
+
+// const obj = {};
+// function transform(data) {
+
+//     data.name = "bhardwaj"; //
+//     console.log(obj==data); // true
+
+//     data = null;
+//     console.log(obj==data); //false
+//   return data;
+// }
+
+// const newObj = transform(obj)
+// console.log(obj); // { name: 'bhardwaj' }
+// console.log(newObj); // null
+// data = null; reassigns the local variable data to null. This does not affect the original object obj;
+//  it only changes the reference held by the local variable data within the function scope.
+//  After this line, data no longer points to the original object, but the original object still exists in memory and is referenced by obj.
+
+// ---------- Output ---------
+
+// console.log(show); // [Function: show]
+
+// console.log(Test); //Cannot access 'Test' before initialization
+
+// function show() {
+//   console.log(show);
+// }
+// class Test {}
+// class const let can't be accessed before initialization
+
+// ---------- Output ---------
+
+// const myArray = [{name:"bhardwaj"}, 2, '4', []]
+// console.log(myArray.length); // 4
+// delete myArray[1]
+// delete myArray[0].name
+// console.log(myArray); // [ {}, <1 empty item>, '4', [] ]
+// console.log(myArray.length); // 4
+
+// ---------- Output ---------
+
+// console.log((true+'')[3]); // e
+
+// ---------- Output ---------
+
+// class Magic {}
+// console.log(typeof Magic); // function
+
+// ---------- Output ---------
+
+// const arr = ['name'];
+// const obj = {}
+// obj.name='Bhardwaj',
+// obj[arr] = 'React'
+// console.log(obj.name); // React
+// console.log(arr.toString()); // React
+// obj keys can be only string and symbol so when we pass array as key js will try to convert in string and is will become name so previous name key will be updated.
+
+// const arr = ['name','hello']
+// console.log(arr.toString()); //name,hello
+
+// ---------- Output ---------
+
+// function fetch() {
+//   a = 7;
+//   console.log(a);
+
+// }
+// let a;
+// // fetch(); 7
+
+// The variable a is declared using let in the global scope, which means it is block-scoped to the global context.
+// Inside the fetch function, since there is no local declaration of a using let, const, or var, the assignment a = 7; refers to the global a.
+// This is because JavaScript first looks for the variable a within the function's local scope and, not finding it, proceeds to the next outer scope, which in this case is the global scope.
+
+// function fetch() { 
+//     a = 7;
+//     console.log(a);
+//   }
+  
+//   fetch(); // if we try to call be declaration it will throw error
+//   let a;
+
+// explanation -  a = 7;: This line attempts to assign the value 7 to a. Since a is not declared within the function or in a higher scope at this point, 
+// it would normally create a global variable a. However, because let a; exists in the block scope (even though it appears after the function call),
+//  JavaScript recognizes this and treats a as if it is in the TDZ during the function execution.
+
+// ---------- Output ---------

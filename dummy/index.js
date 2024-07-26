@@ -373,3 +373,56 @@
 // increment();
 // increment();
 // log(); // Now this will log "Count is 3"
+
+//  Find the First Non-Repeating Character
+
+// function firstNonRepeatingChar(str) {
+//     for (let i = 0; i < str.length; i++) {
+//       if (str.indexOf(str[i]) === str.lastIndexOf(str[i])) {
+//         return str[i];
+//       }
+//     }
+//     return null;
+//   }
+
+//   console.log(firstNonRepeatingChar("ankitan")); // Output: "w"
+
+// ----- output ----------
+
+// var a = [1, 2, 3];
+// a[10] = 99;
+// console.log(a[6]); // undefined.
+
+// ----- output ----------
+
+// var Employee = {
+//   company: "Acme",
+// };
+// var employee1 = Object.create(Employee);
+// delete employee1.company;
+// console.log(employee1.company); // The above code will output Acme. For the object employee1, company is a prototype property that can't be deleted using the delete operator.
+
+// ----- output ----------
+// var z = 1, y = z = typeof y;
+// console.log(y); // undefined
+// The above code will output undefined. The order of execution with the = operator is right to left, which means typeof y will execute first and will return undefined, which will then pass to z and y. Thus, console.log(y); will print undefined.
+
+// ----- output ----------
+// console.log(5 < 6 < 7); // true
+// console.log(7 > 6 > 5); // false
+// explanation  with < and > opeartor, order of execution is from left to right. first 7>6 is true so to compare with number boolean type is converted to number
+// which means 1 > 5 and result is false
+
+// ----- output ----------
+
+// (function () {
+//   var a = (b = 3);
+// })();
+
+// console.log("a defined? " + (typeof a !== "undefined"));
+// console.log("b defined? " + (typeof b !== "undefined"));
+
+// const isPalindrome = (str = "") => {
+//   str = str.replace(/\W/g, "").toLowerCase();
+//   return str === str.split("").reverse().join("");
+// };

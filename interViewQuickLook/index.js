@@ -702,16 +702,58 @@
 // Inside the fetch function, since there is no local declaration of a using let, const, or var, the assignment a = 7; refers to the global a.
 // This is because JavaScript first looks for the variable a within the function's local scope and, not finding it, proceeds to the next outer scope, which in this case is the global scope.
 
-// function fetch() { 
+// function fetch() {
 //     a = 7;
 //     console.log(a);
 //   }
-  
+
 //   fetch(); // if we try to call be declaration it will throw error
 //   let a;
 
-// explanation -  a = 7;: This line attempts to assign the value 7 to a. Since a is not declared within the function or in a higher scope at this point, 
+// explanation -  a = 7;: This line attempts to assign the value 7 to a. Since a is not declared within the function or in a higher scope at this point,
 // it would normally create a global variable a. However, because let a; exists in the block scope (even though it appears after the function call),
 //  JavaScript recognizes this and treats a as if it is in the TDZ during the function execution.
 
+// ---------- Arguments , function.length, and default parameters ---------
+// default params will work only if passed value is missing or passed as undefined else default params will not work
+// Function.length shows the number or params a function is having
+
+// function hello(a, b, c, ...d) {}
+// console.log(hello.length); // 3 rest params are not counted
+// function hello2(a = 0, b, c, ...d) {}
+// console.log(hello2.length); // 0 if any or params is default initilized then only left side of default initilization count
+
+// function abc(a, b) {
+//   // console.log(arguments); { '0': 55, '1': 59 }
+//   a = 12;
+//   b = 16;
+//   // console.log(arguments);  { '0': 12, '1': 16 }
+// }
+
+// abc(55, 59); // we can change the params value if you want to stop it then use strick mode
+
 // ---------- Output ---------
+
+// let test = function () {
+//   console.log(this); // global
+
+//   return function () {
+//     console.log(this); // { a: 1, b: [Function (anonymous)] }
+//   };
+// };
+
+// const obj = {
+//   a: 1,
+//   b: test(),
+// };
+// obj.b();
+
+// ---------- ?? and || difference ---------
+
+// || will get right hand side value if left side value is falsy. falsy values are (false, 0, -0, '', null, undefined, NaN, 0n)
+// ?? will get right  hand side value if left side value is null or undefined only. 
+
+// let result = false || 0 || '' || null || undefined || NaN || "Truthy";
+// console.log(result); // Output: "Truthy"
+
+

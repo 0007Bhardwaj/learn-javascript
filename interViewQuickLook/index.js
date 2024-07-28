@@ -751,9 +751,194 @@
 // ---------- ?? and || difference ---------
 
 // || will get right hand side value if left side value is falsy. falsy values are (false, 0, -0, '', null, undefined, NaN, 0n)
-// ?? will get right  hand side value if left side value is null or undefined only. 
+// ?? will get right  hand side value if left side value is null or undefined only.
 
 // let result = false || 0 || '' || null || undefined || NaN || "Truthy";
 // console.log(result); // Output: "Truthy"
 
+// ---------- function to shorten name length ---------
+
+// function shortenLenght(name = "", len = 10) {
+//   if (name.length <= 10) {
+//     return name;
+//   }
+//   return `${name.substring(0, 10)}...`;
+// }
+
+// console.log(shortenLenght("HelloLongNameFunction")); // HelloLongN...
+
+// ---------- output based question ---------
+
+// const myObj = {
+//   balance: 50000,
+//   updateBalance(amount = 0) {
+//     this.balance += amount;
+//     const updateStatus =()=> {
+//       console.log(this.balance > 52000 ? "rick" : "poor"); // rick if we use arrow function and poor if we use normal function
+//     }
+//     updateStatus();
+//   },
+// };
+// myObj.updateBalance(550000);
+
+// ---------- count number of characters in string ---------
+
+// function returnCharCount(str = "") {
+//   const obj = {};
+//   str.split("").forEach((char) => {
+//     if (obj[char]) {
+//       obj[char]++;
+//     } else {
+//       obj[char] = 1;
+//     }
+//   });
+//   return obj;
+// }
+
+// console.log(returnCharCount("Hello my name is bhardwaj"));
+
+// ---------- create object from array of objects ---------
+
+// const array = [1, 2, 3, 4, 5, 6];
+// function convertObjFromArr(arr = []) {
+//   const obj = {};
+//   return arr.reduce((acc, val, index) => {
+//     acc[index] = val;
+//     return acc;
+//   }, obj);
+// }
+// console.log(convertObjFromArr(array));
+
+// ------------ function to create obj from array of obj with key as passed key ------------
+
+// function arrayToObject(array, keyProperty = null) {
+//   const result = {};
+
+//   if (keyProperty === null) {
+//     // Simple array of numbers
+//     array.forEach((item, index) => {
+//       result[index] = item;
+//     });
+//   } else {
+//     // Array of objects
+//     array.forEach((item) => {
+//       if (item[keyProperty] !== undefined) {
+//         result[item[keyProperty]] = item;
+//       }
+//     });
+//   }
+
+//   return result;
+// }
+
+// // Simple array of numbers
+// const numberArray = [10, 20, 30, 40];
+// console.log(arrayToObject(numberArray));
+// // Output: { '0': 10, '1': 20, '2': 30, '3': 40 }
+
+// // Array of objects
+// const objectArray = [
+//   { id: 1, name: "Alice" },
+//   { id: 2, name: "Bob" },
+//   { id: 3, name: "Charlie" },
+// ];
+// console.log(arrayToObject(objectArray, "id"));
+// // Output: { '1': { id: 1, name: 'Alice' }, '2': { id: 2, name: 'Bob' }, '3': { id: 3, name: 'Charlie' } }
+
+// ------------ write a sum function without using function keyword ------------
+
+// const a = 10;
+// const b = 20;
+// const sum = new Function("a", "b", "console.log(a+b)");
+// sum(a, 50);
+
+// ------------ output ------------
+
+// console.log(`${{Object}}`); //[object Object]
+// const obj = {};
+// obj.Object=()=>{};
+// console.log(obj.toString());// [object Object]
+
+// ------------ output ------------
+
+// const arr = [1,2,3,4]
+// console.log(1 in arr); // true
+// console.log(2 in arr); // true
+// console.log(4 in arr); // false
+// expain -  in check for keys and in js array indexes are used as keys
+
+// ------------ conditionaly add dynamic keys to object ------------
+
+// const canAddProp = true;
+// const obj = {
+//   fname: "ankit",
+//   ...(canAddProp && { age: 20, isMarried:"false" }),
+// };
+// console.log(obj);
+
+// ------------output ------------
+
+// const obj = {
+//     key:20,
+//     get getValue (){
+//        return this.key++
+//     }
+// }
+// // make sure that the console statement runs
+// if (obj.getValue === 20 && obj.getValue === 21 &&  obj.getValue === 22) {
+//     console.log('statement logs');
+// }
+
+// ------------ switch  ------------
+
+// const switchValue = NaN;
+// switch (switchValue) {
+//   case NaN:
+//     console.log("value matches");
+//     break;
+
+//   default:
+//     console.log("value not matches");
+//     break;
+// }
+// in js NaN is the only value that is not equal to itself and switch uses === to compare values
+
+// ------------ output  ------------
+
+// !function () {
+//     console.log('function runs');
+// }()
+
+// using ! operator we can create an iife
+
+// ------------ object based question  ------------
+
+// const key = "constructor";
+// const obj = {};
+
+// if (key in obj) {
+//   console.log("key exists using in operator");
+// }
+// if (obj[key]) {
+//   console.log("key exists while fetching prop");
+// }
+
+// // both consoles will run because constructor key exists in prototype chain and using in and . we will look for the key in obj if not found then it will search for the key in the prototype chain
+// // if want to overcome this issue
+
+// if (obj.hasOwnProperty(key)) { // it will not search for key in prototype chain.
+//   console.log("key exists with hasOwnProperty ");
+// }
+
+// ------------ output  ------------
+
+// console.log([]?.toString() === ""); //true
+// const key = []?.toString();
+// const key2 = []?.toString();
+// const obj = {
+//   [key]: "ankit",
+//   [key2]: "yadav",
+//   "": "bhardwaj",
+// };
+// console.log(obj['']);
 

@@ -137,7 +137,6 @@ const myArray = [12, 15, 17, 19, 15, 19, 12, 55, 70, 23];
 //     throw new Error("not callable on non function type");
 //   }
 //   const uniqueFuncId = Symbol("func");
-//   const fn = this;
 //   context[uniqueFuncId] = this;
 //   return function (...restArgs) {
 //     // return fn.apply(context, [...args, ...restArgs]); // if we can use apply method

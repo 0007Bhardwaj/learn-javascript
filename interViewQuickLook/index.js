@@ -323,6 +323,7 @@
 // example 17    Flattern Array
 
 // const array1 = [1, 2, 3, { name: "ankit" }, [[[[4]]]], 5, [[6], [[7]]]];
+
 // const flattenArray = (arrayToFlat = [], expected = []) => {
 //   for (let index = 0; index < arrayToFlat.length; index++) {
 //     if (Array.isArray(arrayToFlat[index])) {
@@ -406,17 +407,25 @@
 // example 21
 
 // make a function currying
+
 // const sum = (a, b, c, d) => {
 //   return a + b + c + d;
 // };
 
 // function convertToCuryying(func = () => {}) {
+
 //   return function curried(...args) {
+
 //     if (args?.length >= func?.length) {
+
 //       return func.apply(this, args)
+
 //     } else {
+
 //       return function (...rest) {
+
 //         return curried.apply(this,args.concat(rest))
+
 //       };
 //     }
 //   };

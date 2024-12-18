@@ -1,6 +1,6 @@
 // var is in javascript from its creation time
 // let and const comes in ES-6
-// ONLY FUNCTION DECLARATIONS AND VAR CAN BE ACCESSED BEFORE INITIALIZATION
+// ONLY FUNCTION DECLARATIONS AND VAR CAN BE ACCESSED BEFORE INITIALIZATION  (also imports)
 
 //SCOPE
 

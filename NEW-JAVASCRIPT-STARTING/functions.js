@@ -416,7 +416,102 @@ showArgs(1, 2, 3); // Output: [1, 2, 3] (ARRAY LIKE BUT NOT ARRAY)
 // Arrow functions are often used to show that a function is being used as a callback or transformer, making code intent clearer.
 
 
+// ----------------------------- CALL APPLY AND BIND -----------------------------
 
+// 1.  CALL
+
+// call() method allows invoking a function with a specified this value and individual arguments.
+
+// syntax
+// function.call(thisArg, arg1, arg2, ...)
+
+// Key Points:
+
+// thisArg: Value to use as this inside function
+// Remaining arguments passed individually
+// Returns function's result
+// Executes immediately
+
+// Use Cases:
+
+// 1. Method borrowing
+const person = { name: 'John' };
+function greet() {
+  return `Hello, ${this.name}!`;
+}
+greet.call(person); // "Hello, John!"
+
+// 2. Chain constructors
+function Animal(name) {
+  this.name = name;
+}
+function Dog(name, breed) {
+  Animal.call(this, name);
+  this.breed = breed;
+}
+
+// Advantages:
+
+// Explicit this binding
+// Reuse methods across objects
+// Clear argument passing
+// Useful for inheritance patterns
+
+// Disadvantages:
+
+// Arguments must be passed individually
+// Less readable with many arguments
+// Can't handle dynamic argument lists (use apply() instead)
+
+
+// Polyfill
+
+Function.prototype.myCall = function (context, ...args) {
+    // Ensure the method is called on a function
+    if (typeof this !== 'function') {
+      throw new TypeError('myCall must be called on a function');
+    }
+  
+    // Default context to global object if null or undefined
+    context = context ?? globalThis;
+  
+    // Use a Symbol for a unique property
+    const uniqueProp = Symbol();
+  
+    // Assign the function to the context
+    context[uniqueProp] = this;
+  
+    // Invoke the function and capture the result
+    const result = context[uniqueProp](...args);
+  
+    // Clean up the temporary property
+    delete context[uniqueProp];
+  
+    // Return the result of the function call
+    return result;
+  };
+  
+
+// 1.  APPLY
+
+// Basic syntax
+function.apply(thisArg, [argumentsArray])
+
+// Advantages:
+
+// Allows borrowing methods between objects
+// Can pass array as argument list
+// Controls 'this' context explicitly
+// Works with built-in functions
+
+
+// Disadvantages:
+
+// Slightly slower than direct function calls
+// More complex syntax than call()
+// Array must be created for arguments
+// Less readable than spread operator in modern JS
+// Performance overhead with large arrays
 
 
 
